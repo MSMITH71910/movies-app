@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fav Movies</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9ecef; /* Light gray background */
+        }
+        h1 {
+            color: #007bff; /* Bright blue title */
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5em;
+        }
+        .movie-list {
+            margin-top: 20px;
+        }
+        .movie-item {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+        .movie-item:hover {
+            transform: scale(1.02);
+        }
+        .movie-description {
+            font-style: italic;
+            color: #6c757d; /* Gray color for description */
+        }
+        .release-date {
+            color: #28a745; /* Green color for release date */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Favorite Movies</h1>
+        <div class="movie-list">
+            {% for movie in movies %}
+                <div class="movie-item">
+                    <h5>{{ movie.title }}</h5>
+                    <p class="movie-description">{{ movie.description }}</p>
+                    <p class="release-date">Release Date: {{ movie.release_date }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'edit_movie' movie.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'delete_movie' movie.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No movies added yet!</p>
+            {% endfor %}
+        </div>
+        <a href="{% url 'add_movie' %}" class="btn btn-primary mt-3">Add a New Movie</a>
+        <a href="{% url 'about' %}" class="btn btn-secondary mt-3">About</a>
+    </div>
+</body>
+</html>

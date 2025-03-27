@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Delete Movie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ movie.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'index' %}">Cancel</a>
+</body>
+</html>

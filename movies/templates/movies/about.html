@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        h1 {
+            color: #007bff; /* Bright blue title */
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%; /* Responsive image */
+            border-radius: 50%; /* Circular image */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About This Website</h1>
+        <div class="content">
+            <img src="{% static 'movies/My Profile Picture.jpg' %}" alt="My Profile Picture">
+            <p>Hi, I'm Michael R Smith! Welcome to my movie collection website.</p>
+            <p>This website was built using <strong>Python</strong> and the <strong>Django</strong> web framework. Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It provides a robust set of tools and features that make it easy to build web applications efficiently.</p>
+            <p>The purpose of this site is to serve as a personal project that showcases my favorite movies. It allows users to add, edit, and delete movies, as well as view details such as the title, description, and release date. This project not only demonstrates my skills in web development but also serves as a portfolio piece as I pursue a career in software development.</p>
+            <p>Through this application, I aim to highlight my understanding of web technologies, including HTML, CSS, and JavaScript, along with my proficiency in Python and Django. I hope to continue enhancing this project with additional features and improvements as I grow in my career.</p>
+        </div>
+        <a href="{% url 'index' %}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -54,7 +54,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')  # Render provides the DATABASE_URL environment variable
+        default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3')  # Fallback to SQLite if DATABASE_URL is not set
     )
 }
 
@@ -81,10 +81,10 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'  # Corrected
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'movies'),  # Corrected line
+    BASE_DIR / 'static',  # Ensure you have a 'static' folder in your project root
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

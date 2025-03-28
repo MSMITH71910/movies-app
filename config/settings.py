@@ -16,8 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  # Correctly listed
-    'movies',  # Your custom app
+    'django.contrib.staticfiles',
+    'movies',  # Ensure this is the correct app name
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,7 @@ USE_TZ = True
 STATIC_URL = '/static/'  # Corrected
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Ensure this line is correct
+    os.path.join(BASE_DIR, 'movies'),  # Corrected line
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
